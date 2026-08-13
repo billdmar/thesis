@@ -1,0 +1,35 @@
+{
+  "companies": {
+    "DECK": "0000910521",
+    "NKE": "0000320187",
+    "CROX": "0001334036",
+    "WWW": "0000110471",
+    "SHOO": "0000913241",
+    "COLM": "0001050797",
+    "VFC": "0000103379",
+    "BOOT": "0001610250",
+    "CAL": "0000014707"
+  },
+  "user_agent": "thesis-research billdmar@gmail.com",
+  "files": [
+    "company_tickers.json",
+    "companyfacts_BOOT_0001610250.json",
+    "companyfacts_CAL_0000014707.json",
+    "companyfacts_COLM_0001050797.json",
+    "companyfacts_CROX_0001334036.json",
+    "companyfacts_DECK_0000910521.json",
+    "companyfacts_NKE_0000320187.json",
+    "companyfacts_SHOO_0000913241.json",
+    "companyfacts_VFC_0000103379.json",
+    "companyfacts_WWW_0000110471.json",
+    "submissions_BOOT_0001610250.json",
+    "submissions_CAL_0000014707.json",
+    "submissions_COLM_0001050797.json",
+    "submissions_CROX_0001334036.json",
+    "submissions_DECK_0000910521.json",
+    "submissions_NKE_0000320187.json",
+    "submissions_SHOO_0000913241.json",
+    "submissions_VFC_0000103379.json",
+    "submissions_WWW_0000110471.json"
+  ]
+}

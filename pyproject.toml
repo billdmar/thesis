@@ -1,0 +1,62 @@
+[project]
+name = "thesis"
+version = "0.1.0"
+description = "SEC-EDGAR-driven initiating-coverage platform: live-formula Excel model, research report PDF, and the Python engine that builds and verifies both."
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [{ name = "William Mar" }]
+
+# Pinned for determinism (Prime Directive #7: full rebuild reproduces identical numbers).
+# Versions captured on the build machine (macOS arm64, Python 3.12.13).
+dependencies = [
+    "requests==2.34.2",
+    "openpyxl==3.1.5",
+    "matplotlib==3.11.1",
+    "formulas==1.3.4",
+    "weasyprint==69.0",
+    "python-dateutil==2.9.0.post0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==9.1.1",
+    "pytest-cov==7.1.0",
+    "coverage==7.15.3",
+    "ruff==0.16.1",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+# Sensible, non-noisy default set: pyflakes, pycodestyle, isort, bugbear, comprehensions, pyupgrade.
+select = ["E", "F", "I", "B", "C4", "UP", "W"]
+ignore = ["E501"]  # line length handled by formatter; long provenance strings are fine
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+markers = [
+    "live: tests that hit live EDGAR (never run in CI; local-only, opt-in)",
+]
+
+[tool.coverage.run]
+branch = true
+source = ["src"]
+omit = ["src/**/__init__.py"]
+
+[tool.coverage.report]
+show_missing = true
+precision = 1
+# Engines must hit >=90% (DoD #6). Enforced in CI once modules exist.
